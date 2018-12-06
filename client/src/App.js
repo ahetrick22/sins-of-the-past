@@ -38,6 +38,11 @@ class App extends Component {
     console.log(this.state)
     return (
       <div className="App container">
+      <div className="jumbotron">
+        <h1 className="display-4">Sins of the Past</h1>
+        <hr/>
+        <p className="lead">How well do you REALLY know your family?</p>
+      </div>
       <SearchBar searchFunction={this.fetchUserSearch} />
        <CaseList caseList={this.state.cases}/> 
       </div>
