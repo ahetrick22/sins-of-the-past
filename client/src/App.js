@@ -8,13 +8,13 @@ import response from './components/ExampleResponse'
 import './App.css';
 
 class App extends Component {
-  state = {cases: [response.results]}
+  state = { cases: [response.results] }
 
-//   componentDidMount() {
-//     fetch('/users')
-//       .then(res => console.log(res.json()))
-// //      .then(users => this.setState({ users }));
-//   }
+  //   componentDidMount() {
+  //     fetch('/users')
+  //       .then(res => console.log(res.json()))
+  // //      .then(users => this.setState({ users }));
+  //   }
 
   fetchUserSearch(searchObject) {
     let baseUrl = "https://api.case.law/v1/cases/";
@@ -22,28 +22,33 @@ class App extends Component {
     let start = `&decision_start_date=${searchObject.startDate}`;
     let end = `&decision_end_date=${searchObject.endDate}`;
     let category = `&search=${searchObject.category}`;
-    if (searchObject.startDate || searchObject.endDate){
-    if (!/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/.test(searchObject.startDate) || !/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/.test(searchObject.endDate)){
-      alert("Please enter both dates as YYYY-MM-DD")
-      return
-    }
+    if (searchObject.startDate || searchObject.endDate) {
+      if (!/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/.test(searchObject.startDate) || !/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/.test(searchObject.endDate)) {
+        alert("Please enter both dates as YYYY-MM-DD")
+        return
+      }
     };
+      return {
+        name_abbreviation:searchObject.name,
+        decision_start_api:searchObject.startDate,
+        decision_end_date:searchObject.endDate,
+        search:searchObject.category
+      }
 
-    let searchUrl = baseUrl + name + start + end + category;
-    console.log(searchUrl)
-     
+      }
+
   }
 
   render() {
     return (
       <div className="App container">
-      <div className="jumbotron">
-        <h1 className="display-4">Sins of the Past</h1>
-        <hr/>
-        <p className="lead">How well do you REALLY know your family?</p>
-      </div>
-      <SearchBar searchFunction={this.fetchUserSearch} />
-       <CaseList caseList={this.state.cases}/> 
+        <div className="jumbotron">
+          <h1 className="display-4">Sins of the Past</h1>
+          <hr />
+          <p className="lead">How well do you REALLY know your family?</p>
+        </div>
+        <SearchBar searchFunction={this.fetchUserSearch} />
+        <CaseList caseList={this.state.cases} />
       </div>
     );
   }

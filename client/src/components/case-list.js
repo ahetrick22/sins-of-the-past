@@ -3,8 +3,10 @@ import CaseItem from './case-item'
 
 export default class CaseList extends Component {
   
-  renderCases(caseList) {
-    caseList.map(individualCase => (
+  renderCases = (caseList) => {
+    
+    return caseList[0].map(individualCase => (
+      
       <CaseItem case={individualCase} />
     ))
   }
@@ -12,11 +14,10 @@ export default class CaseList extends Component {
   
 
   render() {
-    console.log(this.props.caseList[0][0]);
+    console.log(this.props.caseList);
     return (
       <div>
-        hi
-        <CaseItem case={this.props.caseList[0][0]} />
+       {this.renderCases(this.props.caseList)}
       </div>
     )
   }
