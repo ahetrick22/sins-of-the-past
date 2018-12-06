@@ -17,19 +17,14 @@ class SearchBar extends Component {
   }
 
   submitSearch() {
-
+console.log(this.state)
     this.props.searchFunction(this.state)
-    this.setState({
-      name: '',
-      startDate: '',
-      endDate: '',
-      category: '',
-    })
+
   }
   onInputChange(val, inputType) {
     let tempState = Object.assign({},this.state);
     tempState[inputType]= val
-    
+
     this.setState({ ...tempState })
   }
 
@@ -48,7 +43,7 @@ class SearchBar extends Component {
             Find My Degenerate Ancestors
             </button>
         </div>
-      
+
     </div>
     )
   }

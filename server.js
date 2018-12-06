@@ -27,7 +27,7 @@ app.get('/api/hello', (req, res) => {
   }
   );});
 
-app.post('/api/world', (req, res) => {
+app.post('/casesearch', (req, res) => {
   const data = JSON.parse(JSON.stringify(req.body));
   console.log('data',data);
   const urlQueryString = querystring.stringify(req.body);
@@ -38,7 +38,6 @@ app.post('/api/world', (req, res) => {
     if (err) {
       console.log(err);
     }
-    console.log(body);
      res.send(body);
   })
 
