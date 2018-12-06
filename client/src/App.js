@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import SearchBar from './components/search-bar'
+import CaseList from './components/case-list'
+
+
+import response from './components/ExampleResponse'
+
 import './App.css';
 
 class App extends Component {
-  state = {users: []}
+  state = {cases: [response.results]}
 
-  componentDidMount() {
-    fetch('/users')
-      .then(res => console.log(res.json()))
-//      .then(users => this.setState({ users }));
-  }
+//   componentDidMount() {
+//     fetch('/users')
+//       .then(res => console.log(res.json()))
+// //      .then(users => this.setState({ users }));
+//   }
 
   fetchUserSearch(searchObject) {
     let baseUrl = "https://api.case.law/v1/cases/";
@@ -30,13 +35,11 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
-      <div className="App">
+      <div className="App container">
       <SearchBar searchFunction={this.fetchUserSearch} />
-        <h1>Users</h1>
-        {this.state.users.map(user =>
-          <div key={user.id}>{user.username}</div>
-        )}
+       <CaseList caseList={this.state.caseList}/> 
       </div>
     );
   }

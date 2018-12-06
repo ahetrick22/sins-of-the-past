@@ -34,7 +34,7 @@ class SearchBar extends Component {
   }
 
   render() {
-    return <div className="container">
+    return (
       <div className=" row form-group">
         <div className="search-bar input-group">
           <input value={this.state.name} onChange={event => this.onInputChange(event.target.value, "name")} placeholder="Enter Surname" />
@@ -45,11 +45,12 @@ class SearchBar extends Component {
 
           <input value={this.state.category} onChange={event => this.onInputChange(event.target.value, "category")} placeholder='Category (e.g "Piracy"' />
           <button onClick={() => this.submitSearch()} className="btn btn-default">
-            Search
+            Find My Degenerate Ancestors
             </button>
         </div>
-      </div>
-    </div>;
+      
+    </div>
+    )
   }
 }
 
