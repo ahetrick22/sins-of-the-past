@@ -3,59 +3,29 @@ import SearchBar from './components/search-bar'
 import CaseList from './components/case-list'
 
 
-import response from './components/ExampleResponse'
+import sampleResponse from './components/ExampleResponse'
 
 import './App.css';
 
 class App extends Component {
-  state = { cases: [response.results] }
+  state = { cases: [sampleResponse.results] };
 
   fetchUserSearch = async (searchObject) => {
-    const data = { user: "James", password: "password" };
-    console.log('stringify', JSON.stringify(data));
+    console.log('fetching');
     const response = await fetch('api/world', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: 'dean',
-        login: 'dean',
+        name_abbreviation: 'The Divina Pastora'
       })
     })
     console.log('response', response);
     const body = await response.text();
-    console.log(body);
+    console.log("I'm a case!",body);
     return body;
   }
-//   componentDidMount() {
-//     fetch('/api/hello')
-//       .then(res => console.log(res.json()))
-//
-// //      .then(users => this.setState({ users }));
-//   }
 
-  fetchUserSearch = async (searchObject) => {
-    const data = {user: "James", password: "password"};
-    console.log('stringify',JSON.stringify(data));
-    const response = await fetch('api/world', {
-    method: 'POST',
-    headers: { "Content-Type": "application/json" },
-     body: JSON.stringify({
-    name: 'dean',
-    login: 'dean',
-  })
-})
-    console.log('response',response);
-    const body = await response.text();
-    console.log(body);
-    return body;
-};
-
- // headers: {'Accept': 'application/json',"Content-Type": "application/json; charset=utf-8"},
-    //let searchUrl = baseUrl + name + start + end + category;
-    //console.log(searchUrl)
-
-  //}  
-  fetchUserSearchInput(searchObject) {
+  fetchUserSearchInput = (searchObject) => {
     let baseUrl = "https://api.case.law/v1/cases/";
     let name = `?name_abbreviation=${searchObject.name}`;
     let start = `&decision_start_date=${searchObject.startDate}`;
@@ -86,7 +56,7 @@ class App extends Component {
           <hr />
           <p className="lead">How well do you REALLY know your family?</p>
         </div>
-        <SearchBar searchFunction={this.fetchUserSearchInput} />
+        <SearchBar searchFunction={this.fetchUserSearch} />
         <CaseList caseList={this.state.cases} />
       </div>
     );
