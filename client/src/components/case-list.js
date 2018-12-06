@@ -12,10 +12,11 @@ export default class CaseList extends Component {
   
 
   render() {
-    console.log(this.props);
+    console.log(this.props.caseList[0][0]);
     return (
       <div>
         hi
+        <CaseItem case={this.props.caseList[0][0]} />
       </div>
     )
   }

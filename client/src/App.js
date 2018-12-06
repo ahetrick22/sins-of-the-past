@@ -35,7 +35,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="App container">
       <SearchBar searchFunction={this.fetchUserSearch} />
