@@ -30,7 +30,9 @@ console.log(searchObject)
       name_abbreviation: searchObject.name,
       decision_start_api: searchObject.startDate,
       decision_end_date: searchObject.endDate,
-      search: searchObject.category
+      search: searchObject.category,
+      jurisdiction: 'ark',
+      full_case: 'true'
     }
 
     console.log('fetching');
