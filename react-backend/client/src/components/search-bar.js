@@ -6,7 +6,6 @@ import React, { Component } from 'react'
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
 
     this.state = {
       name: '',
@@ -21,46 +20,36 @@ class SearchBar extends Component {
 
     this.props.searchFunction(this.state)
     this.setState({
-      name:'',
-      startDate:'',
-      endDate:'',
-      category:'',
+      name: '',
+      startDate: '',
+      endDate: '',
+      category: '',
     })
   }
   onInputChange(val, inputType) {
-
-    this.setState({ inputType: val })
+    let tempState = Object.assign({},this.state);
+    tempState[inputType]= val
+    
+    this.setState({ ...tempState })
   }
 
   render() {
-    return (
+    return <div className="container">
       <div className=" row form-group">
-      
-      <div className="search-bar input-group">
-        <input
-          value={this.state.name}
-          onChange={event => this.onInputChange(event.target.value, 'name')}
-          placeholder='Enter Surname' />
+        <div className="search-bar input-group">
+          <input value={this.state.name} onChange={event => this.onInputChange(event.target.value, "name")} placeholder="Enter Surname" />
 
-        <input
-          value={this.state.startDate}
-          onChange={event => this.onInputChange(event.target.value, 'startDate')}
-          placeholder='Start Date (YYYY-MM-DD)' />
+          <input value={this.state.startDate} onChange={event => this.onInputChange(event.target.value, "startDate")} placeholder="Start Date (YYYY-MM-DD)" />
 
-        <input
-          value={this.state.endDate}
-          onChange={event => this.onInputChange(event.target.value, 'endDate')}
-          placeholder='End Date (YYYY-MM-DD)' />
+          <input value={this.state.endDate} onChange={event => this.onInputChange(event.target.value, "endDate")} placeholder="End Date (YYYY-MM-DD)" />
 
-        <input
-          value={this.state.category}
-          onChange={event => this.onInputChange(event.target.value, 'category')}
-          placeholder='Category (e.g "Piracy"' />
-        <button onClick={() => this.submitSearch()} className="btn btn-default">Search</button>
+          <input value={this.state.category} onChange={event => this.onInputChange(event.target.value, "category")} placeholder='Category (e.g "Piracy"' />
+          <button onClick={() => this.submitSearch()} className="btn btn-default">
+            Search
+            </button>
+        </div>
       </div>
-      </div>
-   
-    )
+    </div>;
   }
 }
 
