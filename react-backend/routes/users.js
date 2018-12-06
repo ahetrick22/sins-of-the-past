@@ -1,19 +1,20 @@
 var express = require('express');
-var router = express.Router();
+var app = express();
+var request = require('request');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-	// Comment out this line:
-  //res.send('respond with a resource');
+app.get('/', function(req, res) {
 
-  // And insert something like this instead:
-  res.json([{
-  	id: 1,
-  	username: "samsepi0l"
-  }, {
-  	id: 2,
-  	username: "D0loresH4ze"
-  }]);
+  request(
+  "https://api.case.law/v1/cases/?search=piracy&decision_date_min=1800-01-01&decision_date_max=1850-01-01",
+  { json: true },
+  (err, resp, body) => {
+    if (err) {
+      console.log(err);
+    }
+     res.send(body);
+  }
+);
 });
 
-module.exports = router;
+module.exports = app;
