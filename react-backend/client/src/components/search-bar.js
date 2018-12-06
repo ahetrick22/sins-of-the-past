@@ -6,6 +6,7 @@ import React, { Component } from 'react'
 class SearchBar extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props)
 
     this.state = {
       name: '',
@@ -13,10 +14,18 @@ class SearchBar extends Component {
       endDate: '',
       category: ''
     };
+
   }
 
   submitSearch() {
 
+    this.props.searchFunction(this.state)
+    this.setState({
+      name:'',
+      startDate:'',
+      endDate:'',
+      category:'',
+    })
   }
   onInputChange(val, inputType) {
 
@@ -25,7 +34,9 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="search-bar">
+      <div className=" row form-group">
+      
+      <div className="search-bar input-group">
         <input
           value={this.state.name}
           onChange={event => this.onInputChange(event.target.value, 'name')}
@@ -45,8 +56,10 @@ class SearchBar extends Component {
           value={this.state.category}
           onChange={event => this.onInputChange(event.target.value, 'category')}
           placeholder='Category (e.g "Piracy"' />
-        <button className="btn btn-default">Search</button>
+        <button onClick={() => this.submitSearch()} className="btn btn-default">Search</button>
       </div>
+      </div>
+   
     )
   }
 }
