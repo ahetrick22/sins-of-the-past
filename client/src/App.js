@@ -26,6 +26,35 @@ class App extends Component {
     console.log(body);
     return body;
   }
+//   componentDidMount() {
+//     fetch('/api/hello')
+//       .then(res => console.log(res.json()))
+//
+// //      .then(users => this.setState({ users }));
+//   }
+
+  fetchUserSearch = async (searchObject) => {
+    const data = {user: "James", password: "password"};
+    console.log('stringify',JSON.stringify(data));
+    const response = await fetch('api/world', {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+     body: JSON.stringify({
+    name: 'dean',
+    login: 'dean',
+  })
+})
+    console.log('response',response);
+    const body = await response.text();
+    console.log(body);
+    return body;
+};
+
+ // headers: {'Accept': 'application/json',"Content-Type": "application/json; charset=utf-8"},
+    //let searchUrl = baseUrl + name + start + end + category;
+    //console.log(searchUrl)
+
+  //}  
   fetchUserSearchInput(searchObject) {
     let baseUrl = "https://api.case.law/v1/cases/";
     let name = `?name_abbreviation=${searchObject.name}`;
