@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div className="App container">
       <SearchBar searchFunction={this.fetchUserSearch} />
-       <CaseList caseList={this.state.caseList}/> 
+       <CaseList caseList={this.state.cases}/> 
       </div>
     );
   }
