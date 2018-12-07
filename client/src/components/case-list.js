@@ -6,11 +6,14 @@ export default class CaseList extends Component {
 
   renderCases = (caseList) => {
     if(!caseList) {
-      return <div></div>
+      return <div>Your ancestors are squeaky clean!</div>
     } else {
       console.log(this.props.caseList);
-      if(this.props.caseList.length > 10){
+
+
+    if(this.props.caseList.length > 10){
        this.props.caseList.splice(10,100);
+     }
        console.log(this.props.caseList);
       }
 
