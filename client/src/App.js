@@ -34,6 +34,7 @@ class App extends Component {
     }
     if (!valid) {
       alert(alertMessage);
+      this.setState( { loading: false} );
     }
     return valid;
   }
@@ -50,7 +51,6 @@ class App extends Component {
       search: searchObject.category,
       full_case: 'true'
     }
-
 
     //only let the user search if the parameters are valid
     if(this.validateParameters(paramObject)) {
@@ -71,22 +71,33 @@ class App extends Component {
 
   //JSX for main page
   render() {
-    let caseList 
+    let caseList;
     if(this.state.loading){
-      caseList = <div className="loading col-md-9 col-offset-3"><Loading type="bars" color={"#F0E68C"} /></div>
+
+      caseList =  <div className="App container">
+      <div className="row">
+      <div className="col-2">
+      </div>
+      <div className="loading col-5">
+        <Loading type="bars" color={"#F0E68C"} />
+        </div>
+
+        <div className="col-2">
+        </div>
+        </div>
+        </div>
     }
     else {
       caseList = <CaseList caseSearched = {this.state.caseSearched} caseList={this.state.cases} />;
     }
     return (
-      
+
       <div className="App container">
-        
           <h1 className="main-page-text">Sins of the Past</h1>
           <hr />
           <p className="lead main-page-text">How well do you REALLY know your family?</p>
           <SearchBar searchFunction={this.fetchUserSearchInput} />
-          {caseList}   
+          {caseList}
         </div>
     );
   }
