@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import CaseItem from './case-item'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 //holds all individual cases together in a list of 10 down the page
 class CaseList extends Component {
 
   renderCases = (caseList) => {
-    
+
     //if they haven't searched yet, then show empty case list
     if(!caseList && this.props.caseSearched === false) {
       return <div></div>
@@ -25,9 +27,16 @@ class CaseList extends Component {
 
   render() {
     return (
+      <ReactCSSTransitionGroup
+        transitionName="example"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}>
         <div className="timeline">
        {this.renderCases(this.props.caseList)}
        </div>
+      </ReactCSSTransitionGroup>
     )
   }
 }

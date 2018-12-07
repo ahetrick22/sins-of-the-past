@@ -31,7 +31,7 @@ class CaseItem extends Component {
     //alternate left and right timeline blocks
     if (this.props.index % 2 === 0) {
       return (
-        <div className="container-c left swing-in-top-fwd">
+        <div className="container-c left slide-right">
           <div className="content">
             <h2 className="decisionDate">{this.props.case.decision_date.slice(0, 4)}</h2>
             <hr />
@@ -43,7 +43,7 @@ class CaseItem extends Component {
       )
     } else {
       return (
-        <div className="container-c right swing-in-top-fwd">
+        <div className="container-c right slide-left">
 
           <div className="content">
             <h2 className="decisionDate">{this.props.case.decision_date.slice(0, 4)}</h2>
