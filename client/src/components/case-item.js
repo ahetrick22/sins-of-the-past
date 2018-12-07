@@ -4,6 +4,7 @@ import Truncate from "react-truncate";
 
 class CaseItem extends Component {
 
+
   constructor(props) {
     super(props)
     this.state = {
@@ -37,6 +38,7 @@ toggleView () {
         <div className="container-c left slide-right">
           <div className="content">
             <h2 className="decisionDate">{this.props.case.decision_date.slice(0, 4)}</h2>
+            <hr />
             <p className="caseName"><strong>{this.props.case.name_abbreviation}</strong></p>
             <p className="courtName">{this.props.case.court.name}</p>
             <p>{caseBody}...<span className="seeMore" onClick={this.toggleView}>Toggle View</span></p>      
@@ -46,6 +48,7 @@ toggleView () {
     } else {
       return (
         <div className="container-c right slide-left">
+
           <div className="content">
             <h2 className="decisionDate">{this.props.case.decision_date.slice(0, 4)}</h2>
             <p className="caseName"><strong>{this.props.case.name_abbreviation}</strong></p>

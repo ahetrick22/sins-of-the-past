@@ -27,9 +27,9 @@ app.post('/casesearch', (req, res) => {
 
 const options = {
   url: "https://api.case.law/v1/cases/?" + urlQueryString,
-  // headers: {
-  //   "Authorization": "token 8d4108bf35ee49c3ebe65b39f0588a67af4d0a44"
-  // },
+  headers: {
+    "Authorization": "token f945d44b25c042a80364460802b9515f7279fb12"
+  },
   json: true
 };
 
