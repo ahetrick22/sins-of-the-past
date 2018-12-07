@@ -12,21 +12,32 @@ app.use(bodyParser.json());
 
 //allow CORS through...for some reason that makes it work
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  req.header("Access-Control-Allow-Origin", "*");
+  req.header("Authorization: Token 08bf35ee49c3ebe65b39f0588a67af4d0a44");
+  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  console.log(res);
   next();
 });
 
 //receive a post request from the front end
 app.post('/casesearch', (req, res) => {
+  
+  
   const data = JSON.parse(JSON.stringify(req.body));
 
   //build the query string with params
   const urlQueryString = querystring.stringify(req.body);
 
+const options = {
+  url: "https://api.case.law/v1/cases/?" + urlQueryString,
+  headers: {
+    "Authorization": "token 8d4108bf35ee49c3ebe65b39f0588a67af4d0a44"
+  },
+  json: true
+};
+
   //make the request with the correct params and send back the response to the front end
-  request('https://api.case.law/v1/cases/?' + urlQueryString,
-  { json: true },
+  request(options,
   (err, resp, body) => {
     if (err) {
       console.log(err);
