@@ -6,7 +6,7 @@ export default class CaseList extends Component {
 
   renderCases = (caseList) => {
     if(!caseList) {
-      return <div>Your ancestors are squeaky clean!</div>
+      return <div></div>
     } else {
       console.log(this.props.caseList);
 

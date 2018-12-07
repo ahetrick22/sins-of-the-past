@@ -37,9 +37,9 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-          <h1>Sins of the Past</h1>
+          <h1 className="main-page-text">Sins of the Past</h1>
           <hr />
-          <p className="lead">How well do you REALLY know your family?</p>
+          <p className="lead main-page-text">How well do you REALLY know your family?</p>
           <SearchBar searchFunction={this.fetchUserSearchInput} />
           <CaseList caseList={this.state.cases} />
         </div>
