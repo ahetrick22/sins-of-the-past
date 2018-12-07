@@ -60,7 +60,7 @@ class SearchBar extends Component {
     <button onClick={() => this.submitSearch()} className="btn btn-default">
       Find My Degenerate Ancestors
       </button>
-      <p className="main-page-text">All fields required for an accurate search</p>
+      <p className="main-page-side-text">All fields required for an accurate search</p>
     </div>
     <div className="col-4"></div>
     </div>

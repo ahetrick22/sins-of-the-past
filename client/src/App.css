@@ -1,6 +1,5 @@
-@import url(https://fonts.google.com/specimen/Alex+Brush?selection.family=Open+Sans:800i);
 @import url('https://fonts.googleapis.com/css?family=Pirata+One');
-@import url('https://fonts.googleapis.com/css?family=Oldenburg');
+
 /* .App {
   text-align: center;
 }
@@ -37,7 +36,7 @@
 * {
     text-align: center;
     /* box-sizing: border-box; */
-    font-family: 'Alex Brush', open-sansx;
+    font-family: 'Pirata One', 'Oldenburg', cursive;
     font-size: 17px;
     text-shadow:
     3px 3px 0 #000,
@@ -55,9 +54,6 @@ button {
   align-content: center;
 }
 
-h1 {
-  font-family: 'Pirata One', 'Oldenburg', cursive;
-}
 
 .search-field {
   margin : 5px;
@@ -65,6 +61,13 @@ h1 {
 
 .main-page-text {
   color: white;
+  font-size: 100px;
+  text-shadow:
+  3px 3px 0 #000,
+ -1px -1px 0 #000,  
+  1px -1px 0 #000,
+ -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
 
 .app {
@@ -162,7 +165,14 @@ h1 {
     padding: 20px 30px;
     position: relative;
     border-radius: 6px;
-    background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
+    background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    text-align: justify;
+    word-wrap: normal;
+}
+
+.content-body{
+  text-align:justify;
+  word-wrap:normal;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -207,3 +217,9 @@ h1 {
 	-webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+
+span{
+  /* white-space: nowrap; */
+  overflow:scroll
+}
+

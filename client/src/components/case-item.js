@@ -7,7 +7,7 @@ class CaseItem extends Component {
   static defaultProps = {
     lines: 15,
     more: 'Read more',
-    less: 'Show less'
+    less: 'Show less',
   }
   constructor(props) {
     super(props)
@@ -60,6 +60,7 @@ class CaseItem extends Component {
         <div className="container-c left slide-right">
           <div className="content">
             <h2 className="decisionDate">{this.props.case.decision_date.slice(0, 4)}</h2>
+            <hr />
             <p className="caseName"><strong>{this.props.case.name_abbreviation}</strong></p>
             <p className="courtName">{this.props.case.court.name}</p>
             <Truncate lines={!expanded && lines} 
@@ -77,7 +78,7 @@ class CaseItem extends Component {
     } else {
       return (
         <div className="container-c right slide-left">
-          <div className="content">
+          <div className="content-body">
             <h2>{this.props.case.decision_date.slice(0, 4)}</h2>
             <p><strong>{this.props.case.name_abbreviation}</strong></p>
 
