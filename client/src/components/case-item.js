@@ -6,7 +6,14 @@ class CaseItem extends Component {
     this.state = {
       expanded: false,
     }
-    
+  }
+
+  //toggles between full text and truncated view
+  toggleView = () => {
+    this.setState({expanded:!this.state.expanded})
+  }
+
+  render() {
     //make sure the key isn't expired
     let caseBody;
     //if we get a response with a casebody
@@ -18,18 +25,11 @@ class CaseItem extends Component {
     }
     //truncates casebody for summarized view
     if(!this.state.expanded){
-      caseBody = caseBody.substring(0,500) 
+      caseBody = caseBody.substring(0,500)
     }
-  }
-  
-  //toggles between full text and truncated view
-  toggleView = () => {
-    this.setState({expanded:!this.state.expanded})
-  }
 
-  render() {
     //alternate left and right timeline blocks
-    if (this.props.index % 2 == 0) {
+    if (this.props.index % 2 === 0) {
       return (
         <div className="container-c left slide-right">
           <div className="content">
@@ -37,7 +37,7 @@ class CaseItem extends Component {
             <hr />
             <p className="caseName"><strong>{this.props.case.name_abbreviation}</strong></p>
             <p className="courtName">{this.props.case.court.name}</p>
-            <p>{caseBody}...<span className="seeMore" onClick={this.toggleView}>Toggle View</span></p>      
+            <p>{caseBody}...<span className="seeMore" onClick={this.toggleView}>Toggle View</span></p>
           </div>
         </div>
       )
