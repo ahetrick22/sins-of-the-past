@@ -1,4 +1,6 @@
 @import url(https://fonts.google.com/specimen/Alex+Brush?selection.family=Open+Sans:800i);
+@import url('https://fonts.googleapis.com/css?family=Pirata+One');
+@import url('https://fonts.googleapis.com/css?family=Oldenburg');
 /* .App {
   text-align: center;
 }
@@ -34,12 +36,12 @@
 
 * {
     text-align: center;
-    box-sizing: border-box;
-    font-family: 'Alex Brush', cursive;
+    /* box-sizing: border-box; */
+    font-family: 'Alex Brush', open-sansx;
     font-size: 17px;
     text-shadow:
     3px 3px 0 #000,
-  -1px -1px 0 #000,  
+  -1px -1px 0 #000,
    1px -1px 0 #000,
    -1px 1px 0 #000,
 }
@@ -49,12 +51,32 @@ body {
     background-image: url(https://images.pexels.com/photos/37859/sailing-ship-vessel-boat-sea-37859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
 }
 
+button {
+  align-content: center;
+}
+
+h1 {
+  font-family: 'Pirata One', 'Oldenburg', cursive;
+}
+
+.search-field {
+  margin : 5px;
+}
+
+.main-page-text {
+  color: white;
+}
+
+.app {
+  align-content: center;
+}
+
 /* The actual timeline (the vertical ruler) */
 .timeline {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    
+
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -185,4 +207,3 @@ body {
 	-webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-

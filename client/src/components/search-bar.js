@@ -29,16 +29,17 @@ class SearchBar extends Component {
 
   render() {
     return (
+      <div>
       <div className=" row form-group">
       <div className="col-1"></div>
         <div className="search-bar input-group col">
-          <input type = "text" value={this.state.name} onChange={event => this.onInputChange(event.target.value, "name")} placeholder="Enter Surname" />
+          <input className="search-field" type = "text" value={this.state.name} onChange={event => this.onInputChange(event.target.value, "name")} placeholder="Enter Surname" />
 
-          <input type = "text" value={this.state.startDate} onChange={event => this.onInputChange(event.target.value , "startDate")} placeholder="Starting Year (YYYY)" />
+          <input className="search-field" type = "text" value={this.state.startDate} onChange={event => this.onInputChange(event.target.value , "startDate")} placeholder="Starting Year (YYYY)" />
 
-          <input type = "text" value={this.state.endDate} onChange={event => this.onInputChange(event.target.value, "endDate")} placeholder="Ending Year (YYYY)" />
+          <input className="search-field" type = "text" value={this.state.endDate} onChange={event => this.onInputChange(event.target.value, "endDate")} placeholder="Ending Year (YYYY)" />
 
-          <select value={this.state.category} onChange={event => this.onInputChange(event.target.value, "category")}>
+          <select className="search-field" className="search-field" value={this.state.category} onChange={event => this.onInputChange(event.target.value, "category")}>
             <option value = "Piracy">Piracy</option>
             <option value = "Murder">Murder</option>
             <option value = "Pillaging">Pillaging</option>
@@ -50,13 +51,20 @@ class SearchBar extends Component {
             <option value = "Embezzlement">Embezzlement</option>
             <option value = "Public Drunkenness">Public Drunkenness</option>
            </select>
-          <button onClick={() => this.submitSearch()} className="btn btn-default">
-            Find My Degenerate Ancestors
-            </button>
-            <p>All fields required for an accurate search</p>
         </div>
       <div className="col-1"></div>
     </div>
+    <div className='row'>
+    <div className="col-4"></div>
+    <div className="col">
+    <button onClick={() => this.submitSearch()} className="btn btn-default">
+      Find My Degenerate Ancestors
+      </button>
+      <p className="main-page-text">All fields required for an accurate search</p>
+    </div>
+    <div className="col-4"></div>
+    </div>
+      </div>
     )
   }
 }
