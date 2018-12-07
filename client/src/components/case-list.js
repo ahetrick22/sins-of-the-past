@@ -5,6 +5,7 @@ import CaseItem from './case-item'
 class CaseList extends Component {
 
   renderCases = (caseList) => {
+    
     //if they haven't searched yet, then show empty case list
     if(!caseList && this.props.caseSearched === false) {
       return <div></div>
