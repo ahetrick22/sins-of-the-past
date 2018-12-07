@@ -36,7 +36,7 @@ class SearchBar extends Component {
 
           <input className="search-field" type = "text" value={this.state.endDate} onChange={event => this.onInputChange(event.target.value, "endDate")} placeholder="Ending Year (YYYY)" />
 
-          <select className="search-field" className="search-field" value={this.state.category} onChange={event => this.onInputChange(event.target.value, "category")}>
+          <select className="search-field" value={this.state.category} onChange={event => this.onInputChange(event.target.value, "category")}>
             <option value = "Piracy">Piracy</option>
             <option value = "Light Treason">Light Treason</option>
             <option value = "Murder">Murder</option>
