@@ -28,10 +28,12 @@ app.post('/casesearch', (req, res) => {
 const options = {
   url: "https://api.case.law/v1/cases/?" + urlQueryString,
   headers: {
-    "Authorization": "token f945d44b25c042a80364460802b9515f7279fb12"
+    "Authorization": "token 0dba1d27330ab89d9ccb880e56d24ec16f3804c7"
   },
   json: true
 };
+
+//extra key: 0dba1d27330ab89d9ccb880e56d24ec16f3804c7
 
   //make the request with the correct params and send back the response to the front end
   request(options,
