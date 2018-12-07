@@ -10,14 +10,16 @@ export default class CaseList extends Component {
     } else {
       console.log(this.props.caseList);
 
-      if (this.props.caseList.length > 10) {
+
+    if(this.props.caseList.length > 10){
        this.props.caseList.splice(10,100);
      }
        console.log(this.props.caseList);
+      }
 
     return  caseList.map((individualCase, index) => (
         <CaseItem  key={index} case={individualCase} index={index} />
-
+          // <p>test</p>
       ))
     }
   }
