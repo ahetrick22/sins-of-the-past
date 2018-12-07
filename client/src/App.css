@@ -33,12 +33,22 @@
 } */
 
 * {
+    text-align: center;
+    text-size-adjust: 20px;
+    color: whitesmoke;
     box-sizing: border-box;
+    font-family: 'Alex Brush', cursive;
+    font-size: 17px;
+    text-shadow:
+    3px 3px 0 #000,
+  -1px -1px 0 #000,  
+   1px -1px 0 #000,
+   -1px 1px 0 #000,
 }
 
 body {
     background-color: #474e5d;
-    background-image: url(https://images.pexels.com/photos/37859/sailing-ship-vessel-boat-sea-37859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
+    background-image: url(https://images.pexels.com/photos/37859/sailing-ship-vessel-boat-sea-37859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
 }
 
 /* The actual timeline (the vertical ruler) */
