@@ -7,8 +7,33 @@ import './App.css';
 class App extends Component {
   //holds the current list of cases, resets on a new search
   state = {
-    cases: null
+    cases: null,
+    caseSearched: false
   };
+
+  //validate the input data
+  validateParameters = paramObject => {
+    let valid = true;
+    let alertMessage = "Please enter: ";
+    if (paramObject.name_abbreviation.length === 0) {
+      alertMessage += `a surname,`;
+      valid = false;
+    }
+
+    if (paramObject.decision_date_min.length !== 10) {
+      alertMessage += `a 4 digit start year,`;
+      valid = false;
+    }
+
+    if (paramObject.decision_date_max.length !== 10) {
+      alertMessage += `a 4 digit end year`;
+      valid = false;
+    }
+    if (!valid) {
+      alert(alertMessage);
+    }
+    return valid;
+  }
 
   //fetches the user's search from the local server by submitting the query params
   fetchUserSearchInput = async (searchObject) => {
@@ -22,15 +47,19 @@ class App extends Component {
       full_case: 'true'
     }
 
-    //send the request and then convert the response to text and add to state
-    const response = await fetch('/casesearch', {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"},
-      body: JSON.stringify(paramObject)
-    })
-    const body = await response.text();
-    await this.setState({cases: JSON.parse(body).results})
+    //only let the user search if the parameters are valid
+    if(this.validateParameters(paramObject)) {
+      //send the request and then convert the response to text and add to state
+      const response = await fetch('/casesearch', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"},
+        body: JSON.stringify(paramObject)
+      })
+      const body = await response.text();
+      await this.setState({cases: JSON.parse(body).results})
+      await this.setState({caseSearched: true});
+    }
   }
 
   //JSX for main page
@@ -41,7 +70,7 @@ class App extends Component {
           <hr />
           <p className="lead main-page-text">How well do you REALLY know your family?</p>
           <SearchBar searchFunction={this.fetchUserSearchInput} />
-          <CaseList caseList={this.state.cases} />
+          <CaseList caseSearched = {this.state.caseSearched} caseList={this.state.cases} />
         </div>
     );
   }

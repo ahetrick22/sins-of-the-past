@@ -1,6 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
+//individual case
 const CaseItem = (props) => {
+
+  //get the full text if it exists
   let caseBody;
   if(props.case.casebody.data !== null){
     caseBody = props.case.casebody.data.opinions[0].text;
@@ -8,13 +11,14 @@ const CaseItem = (props) => {
     caseBody = "Sorry, no case summary is available"
   }
 
+  //alternate left and right side timeline blocks
   if (props.index % 2 == 0) {
     return (
       <div className="container-c left slide-right">
         <div className="content">
           <h2>{props.case.decision_date.slice(0,4)}</h2>
           <p><strong>{props.case.name_abbreviation}</strong></p>
-          
+
           <p>{caseBody}</p>
         </div>
       </div>
@@ -25,14 +29,12 @@ const CaseItem = (props) => {
         <div className="content">
           <h2>{props.case.decision_date.slice(0,4)}</h2>
           <p><strong>{props.case.name_abbreviation}</strong></p>
-          
+
           <p>{caseBody}</p>
         </div>
       </div>
     )
   }
-
-
 }
 
 export default CaseItem
