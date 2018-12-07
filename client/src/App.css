@@ -1,3 +1,4 @@
+@import url(https://fonts.google.com/specimen/Alex+Brush?selection.family=Open+Sans:800i);
 /* .App {
   text-align: center;
 }
@@ -37,7 +38,7 @@
 
 body {
     background-color: #474e5d;
-    font-family: Helvetica, sans-serif;
+    background-image: url(https://images.pexels.com/photos/37859/sailing-ship-vessel-boat-sea-37859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -45,7 +46,7 @@ body {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: black;
+    
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -127,10 +128,11 @@ body {
 
 /* The actual content */
 .content {
+    color: white;
     padding: 20px 30px;
-    background-color: white;
     position: relative;
     border-radius: 6px;
+    background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -164,4 +166,18 @@ body {
   .right {
     left: 0%;
   }
+}
+/* Will make elements slide to the left*/
+.slide-left {
+	-webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3 alternate forwards;
+	        animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3 alternate forwards;
+}
+
+.slide-right {
+	-webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+h2 {
+  color:white;
 }
