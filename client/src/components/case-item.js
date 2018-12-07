@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 const CaseItem = (props) => {
   let caseBody;
-  if(props.case.casebody.data.opinions[0].data){
+  if(props.case.casebody.data !== null){
     caseBody = props.case.casebody.data.opinions[0].text;
   } else {
     caseBody = "Sorry, no case summary is available"
