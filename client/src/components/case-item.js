@@ -7,11 +7,13 @@ const CaseItem = (props) => {
 
 
   return (
-    <div>
-      <h2>Case Name: {props.case.name_abbreviation}</h2>
-      <h3>Date: {props.case.decision_date}</h3>
-      <a href={`${props.case.url}?format=html&full_case=true`}>Link to case</a>
-      <h6>You must be a registered member to see case</h6>
+
+    <div className="container-c left slide-left card">
+      <div className="content">
+        <h2>{props.case.decision_date.slice(0,4)}</h2>
+        <p><strong>{props.case.name}</strong></p>
+        <p> I am a case summary </p>
+      </div>
     </div>
   )
 }
