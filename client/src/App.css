@@ -229,4 +229,8 @@ button {
 .seeMore:hover {
 color:red
 }
+.no-results{
+  font-size: 1.5em;
+  color:white;
+}
 
