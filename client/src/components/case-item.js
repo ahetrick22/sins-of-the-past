@@ -1,38 +1,34 @@
 import React, { Component } from 'react'
-import Truncate from "react-truncate";
-
-
 class CaseItem extends Component {
-
 
   constructor(props) {
     super(props)
     this.state = {
       expanded: false,
-
     }
-    this.toggleView = this.toggleView.bind(this)
-
-  }
-toggleView () {
-  this.setState({expanded:!this.state.expanded})
-}
-
-
-  render() {
     
-
+    //make sure the key isn't expired
     let caseBody;
+    //if we get a response with a casebody
     if (this.props.case.casebody.status === "ok") {
       caseBody = this.props.case.casebody.data.opinions[0].text;
+    //if key is expired or casebody doesn't exists
     } else {
       caseBody = "Sorry, no case summary is available"
     }
-
-    if(!this.state.expanded && (typeof caseBody === 'string')){
+    //truncates casebody for summarized view
+    if(!this.state.expanded){
       caseBody = caseBody.substring(0,500) 
     }
+  }
+  
+  //toggles between full text and truncated view
+  toggleView = () => {
+    this.setState({expanded:!this.state.expanded})
+  }
 
+  render() {
+    //alternate left and right timeline blocks
     if (this.props.index % 2 == 0) {
       return (
         <div className="container-c left slide-right">
@@ -60,7 +56,5 @@ toggleView () {
     }
   }
 }
-
-
 
 export default CaseItem

@@ -1,35 +1,32 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
-
-//Expecting a function to change the state from the App component
-
+//build the search bar with input fields and the button
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       name: '',
       startDate: '',
       endDate: '',
       category: ''
     };
-
   }
 
+  //submit the search up to the app
   submitSearch() {
     this.props.searchFunction(this.state)
-
   }
+
+  //manage the input change with local state
   onInputChange(val, inputType) {
     let tempState = Object.assign({},this.state);
     tempState[inputType]= val
-
     this.setState({ ...tempState })
   }
 
   render() {
     return (
-      <div>
+      <Fragment>
       <div className=" row form-group">
       <div className="col-1"></div>
         <div className="search-bar input-group col">
@@ -41,6 +38,7 @@ class SearchBar extends Component {
 
           <select className="search-field" className="search-field" value={this.state.category} onChange={event => this.onInputChange(event.target.value, "category")}>
             <option value = "Piracy">Piracy</option>
+            <option value = "Light Treason">Light Treason</option>
             <option value = "Murder">Murder</option>
             <option value = "Pillaging">Pillaging</option>
             <option value = "Witchcraft">Witchcraft</option>
@@ -50,6 +48,7 @@ class SearchBar extends Component {
             <option value = "Hijacking">Hijacking</option>
             <option value = "Embezzlement">Embezzlement</option>
             <option value = "Public Drunkenness">Public Drunkenness</option>
+            <option value = "Arson">Arson</option>
            </select>
         </div>
       <div className="col-1"></div>
@@ -64,7 +63,7 @@ class SearchBar extends Component {
     </div>
     <div className="col-4"></div>
     </div>
-      </div>
+    </Fragment>
     )
   }
 }
