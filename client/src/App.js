@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './components/search-bar'
 import CaseList from './components/case-list'
+import axios from 'axios'
 
 import sampleResponse from './components/ExampleResponse'
 
@@ -13,18 +14,22 @@ class App extends Component {
   fetchUserSearchInput = async (searchObject) => {
     console.log(searchObject)
     let searchObjectx = {
+
       name_abbreviation: searchObject.name,
-      decision_start_api: searchObject.startDate,
+      decision_start_date: searchObject.startDate,
       decision_end_date: searchObject.endDate,
       search: searchObject.category,
-      jurisdiction: 'ark',
+      
       full_case: 'true'
+      
     }
 
     console.log('fetching');
     const response = await fetch('/casesearch', {
       method: 'POST',
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        // "Authorization": "08bf35ee49c3ebe65b39f0588a67af4d0a44",
+        "Content-Type": "application/json"},
       body: JSON.stringify(searchObjectx)
     })
     console.log('response', response);

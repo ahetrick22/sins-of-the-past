@@ -17,7 +17,6 @@ class SearchBar extends Component {
   }
 
   submitSearch() {
-console.log(this.state)
     this.props.searchFunction(this.state)
 
   }
