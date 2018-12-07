@@ -1,19 +1,31 @@
 import React, { Component } from 'react'
 
 const CaseItem = (props) => {
+  console.log(props.index);
+
+  if (props.index % 2 == 0) {
+    return (
+      <div className="container-c left slide-right">
+        <div className="content">
+          <h2>{props.case.decision_date.slice(0,4)}</h2>
+          <p><strong>{props.case.name}</strong></p>
+          <p> I am a case summary </p>
+        </div>
+      </div>
+    )
+  } else {
+    return (
+      <div className="container-c right slide-left">
+        <div className="content">
+          <h2>{props.case.decision_date.slice(0,4)}</h2>
+          <p><strong>{props.case.name}</strong></p>
+          <p> I am a case summary </p>
+        </div>
+      </div>
+    )
+  }
 
 
-  console.log(props)
-
-
-  return (
-    <div>
-      <h2>Case Name: {props.case.name_abbreviation}</h2>
-      <h3>Date: {props.case.decision_date}</h3>
-      <a href={`${props.case.url}?format=html&full_case=true`}>Link to case</a>
-      <h6>You must be a registered member to see case</h6>
-    </div>
-  )
 }
 
 export default CaseItem
