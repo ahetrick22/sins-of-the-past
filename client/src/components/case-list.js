@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CaseItem from './case-item'
+import _ from 'lodash';
 
 export default class CaseList extends Component {
 
@@ -8,8 +9,12 @@ export default class CaseList extends Component {
       return <div></div>
     } else {
       console.log(this.props.caseList);
-      return caseList.map(individualCase => (
-        <CaseItem case={individualCase} />
+       this.props.caseList.splice(10,100);
+       console.log(this.props.caseList);
+
+    return  caseList.map((individualCase, index) => (
+        <CaseItem  key={index} case={individualCase} index={index} />
+
       ))
     }
   }
@@ -19,7 +24,7 @@ export default class CaseList extends Component {
   render() {
     console.log(this.props.caseList);
     return (
-      <div>
+        <div className="timeline">
        {this.renderCases(this.props.caseList)}
       </div>
     )

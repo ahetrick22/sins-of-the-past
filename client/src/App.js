@@ -44,15 +44,13 @@ class App extends Component {
     return (
 
       <div className="App container">
-        <div className="jumbotron">
-          <h1 className="display-4">Sins of the Past</h1>
+
+          <h1>Sins of the Past</h1>
           <hr />
           <p className="lead">How well do you REALLY know your family?</p>
-        </div>
+
         <SearchBar searchFunction={this.fetchUserSearchInput} />
-        <div className="timeline">
           <CaseList caseList={this.state.cases} />
-        </div>
         </div>
     );
   }
