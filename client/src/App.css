@@ -34,8 +34,6 @@
 
 * {
     text-align: center;
-    text-size-adjust: 20px;
-    color: whitesmoke;
     box-sizing: border-box;
     font-family: 'Alex Brush', cursive;
     font-size: 17px;
@@ -188,6 +186,3 @@ body {
 	        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-h2 {
-  color:white;
-}

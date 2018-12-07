@@ -22,8 +22,6 @@ export default class CaseList extends Component {
           // <p>test</p>
       ))
     }
-  }
-
 
 
   render() {

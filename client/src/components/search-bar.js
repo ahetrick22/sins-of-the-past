@@ -30,7 +30,8 @@ class SearchBar extends Component {
   render() {
     return (
       <div className=" row form-group">
-        <div className="search-bar input-group">
+      <div className="col-1"></div>
+        <div className="search-bar input-group col">
           <input type = "text" value={this.state.name} onChange={event => this.onInputChange(event.target.value, "name")} placeholder="Enter Surname" />
 
           <input type = "text" value={this.state.startDate} onChange={event => this.onInputChange(event.target.value , "startDate")} placeholder="Starting Year (YYYY)" />
@@ -48,16 +49,13 @@ class SearchBar extends Component {
             <option value = "Hijacking">Hijacking</option>
             <option value = "Embezzlement">Embezzlement</option>
             <option value = "Public Drunkenness">Public Drunkenness</option>
-
-
-
            </select>
           <button onClick={() => this.submitSearch()} className="btn btn-default">
             Find My Degenerate Ancestors
             </button>
             <p>All fields required for an accurate search</p>
         </div>
-
+      <div className="col-1"></div>
     </div>
     )
   }
