@@ -7,32 +7,20 @@ import sampleResponse from './components/ExampleResponse'
 import './App.css';
 
 class App extends Component {
-  state = { cases: [sampleResponse.results] };
+  state = { cases: sampleResponse.results };
 
-
-
-  // fetchUserSearch = async (searchObject) => {
-  //   console.log('fetching');
-  //   const response = await fetch('/casesearch', {
-  //     method: 'POST',
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(this.fetchUserSearchInput())
-  //   })
-  //   console.log('response', response);
-  //   const body = await response.text();
-  //   console.log("I'm a case!",body);
-  //   return body;
-  // }
 
   fetchUserSearchInput = async (searchObject) => {
-console.log(searchObject)
+    console.log(this.state.cases[0]);
+    console.log(searchObject)
     let searchObjectx = {
       name_abbreviation: searchObject.name,
       decision_start_api: searchObject.startDate,
       decision_end_date: searchObject.endDate,
-      search: searchObject.category
+      search: searchObject.category,
+      jurisdiction: 'ark',
+      full_case: 'true'
     }
-
     console.log('fetching');
     const response = await fetch('/casesearch', {
       method: 'POST',
@@ -44,22 +32,10 @@ console.log(searchObject)
     console.log("I'm a case!",JSON.parse(body));
     return body;
   }
-    // let baseUrl = "https://api.case.law/v1/cases/";
-    // let name = `?name_abbreviation=${searchObject.name}`;
-    // let start = `&decision_start_date=${searchObject.startDate}`;
-    // let end = `&decision_end_date=${searchObject.endDate}`;
-    // let category = `&search=${searchObject.category}`;
-    // if (searchObject.startDate || searchObject.endDate) {
-    //   if (!/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/.test(searchObject.startDate) || !/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/.test(searchObject.endDate)) {
-    //     alert("Please enter both dates as YYYY-MM-DD")
-    //     return
-    //   }
-    // };
-
-
 
   render() {
     return (
+
       <div className="App container">
         <div className="jumbotron">
           <h1 className="display-4">Sins of the Past</h1>
@@ -67,8 +43,46 @@ console.log(searchObject)
           <p className="lead">How well do you REALLY know your family?</p>
         </div>
         <SearchBar searchFunction={this.fetchUserSearchInput} />
-        <CaseList caseList={this.state.cases} />
-      </div>
+        <div className="timeline">
+          <div className="container-c left">
+            <div className="content">
+              <h2>{this.state.cases[0].decision_date.slice(0,4)}</h2>
+              <p><strong>{this.state.cases[0].name}</strong></p>
+              <p> I am a case summary </p>
+            </div>
+          </div>
+          <div className="container-c right">
+            <div className="content">
+              <h2>2016</h2>
+              <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+            </div>
+          </div>
+          <div className="container-c left">
+            <div className="content">
+              <h2>2015</h2>
+              <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+            </div>
+          </div>
+          <div className="container-c right">
+            <div className="content">
+              <h2>2012</h2>
+              <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+            </div>
+          </div>
+          <div className="container-c left">
+            <div className="content">
+              <h2>2011</h2>
+              <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+            </div>
+          </div>
+          <div class="container-c right">
+            <div className="content">
+              <h2>2007</h2>
+              <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+            </div>
+          </div>
+        </div>
+        </div>
     );
   }
 }
