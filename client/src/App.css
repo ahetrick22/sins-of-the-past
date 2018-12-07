@@ -230,22 +230,6 @@ margin-right: 45%;
   transition: opacity 300ms ease-in;
 }
 
-/* Will make elements slide to the left*/
-.slide-left {
-	-webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3 alternate forwards;
-	        animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3 alternate forwards;
-}
-
-.slide-right {
-	-webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-.swing-in-top-fwd {
-	-webkit-animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-	        animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-}
-
 .seeMore{
   color:blue
 }
