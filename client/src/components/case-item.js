@@ -81,7 +81,14 @@ class CaseItem extends Component {
             <h2>{this.props.case.decision_date.slice(0, 4)}</h2>
             <p><strong>{this.props.case.name_abbreviation}</strong></p>
 
-            <p>{caseBody}</p>
+            <Truncate lines={!expanded && lines}
+              ellipsis={(<span>... <a href="#" onClick={this.toggleLines}>{more}</a></span>
+              )} onTruncate={this.handleTruncate}>
+              <p>{caseBody}</p>
+            </Truncate>
+            {!truncated && expanded && (
+              <span> <a href='#' onClick={this.toggleLines}>{less}</a></span>
+            )}
           </div>
         </div>
       )
