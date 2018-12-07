@@ -30,6 +30,7 @@ class App extends Component {
       body: JSON.stringify(paramObject)
     })
     const body = await response.text();
+    console.log("here", JSON.parse(body))
     await this.setState({cases: JSON.parse(body).results})
   }
 
